@@ -1,0 +1,16 @@
+clients: # Add other client settings https://auth0.com/docs/api/management/v2#!/Clients/post_clients
+  -
+    name: "Lab: Web App"
+    app_type: "regular_web"
+    callbacks:
+      - "http://localhost:7000"
+      - "https://##CLOUDENV_ENVIRONMENT_ID##-7000.apps.codespaces.githubusercontent.com"
+      - "https://7000-0-##INSTANCE_ID##.auth0-labs.appsembler.com"
+    allowed_logout_urls:
+      - "http://localhost:7000"
+      - "https://##CLOUDENV_ENVIRONMENT_ID##-7000.apps.codespaces.githubusercontent.com"
+      - "https://7000-0-##INSTANCE_ID##.auth0-labs.appsembler.com"
+resourceServers: # Add other resource server settings (https://auth0.com/docs/api/management/v2#!/Resource_Servers/post_resource_servers)
+  -
+    name: "Lab: API"
+    identifier: "https://expenses-api"
