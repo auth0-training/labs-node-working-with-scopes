@@ -1,0 +1,64 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Working with Scopes",
+  "steps": [
+    {
+      "title": "Add a Scope to your Auth0 API",
+      "description": "## 1. Add a scope to your Auth0 API\n\nIn this exercise, you’ll add a permission to your secured API, so that only clients requesting a specific scope can access it.\n\nThe process begins by defining your scope in your Auth0 API.  \n\n1. In the Auth0 Dashboard, go to the [APIs page](https://manage.auth0.com/#/apis), and click the **Expenses API** to open its settings page.  \n\n1. Click the **Permissions** tab and recall you added a permission called `read:reports` previously. This custom permission is the one you will use to determine whether the client is authorized to retrieve expenses.  \n\nThis alone is not enough to implement the scope. Next, we’ll need to adjust the Expenses API code to check bearer tokens for this scope."
+    },
+    {
+      "file": "src/api/api/index.js",
+      "description": "## Import the requiredScopes Middleware.\n\nHere, in the index.js for the Expenses API, we'll add some code to bring in the middleware that will enable us to work with scopes. \n\nClick insert code to add the requiredScopes middleware.\n\n``` jsx\n, requiredScopes\n```\n, then continue.",
+      "line": 4,
+      "selection": {
+        "start": {
+          "line": 4,
+          "character": 14
+        },
+        "end": {
+          "line": 4,
+          "character": 14
+        }
+      }
+    },
+    {
+      "file": "src/api/api/index.js",
+      "description": "## Add requiredScopes to the /reports route\nNow, we’ll update the /reports endpoint to use the requiredScopes middleware.\n\nHere on the /reports endpoint, we'll add:\n\n``` jsx\nrequiredScopes('read:reports'), \n```\n, then continue.",
+      "line": 54,
+      "selection": {
+        "start": {
+          "line": 54,
+          "character": 21
+        },
+        "end": {
+          "line": 54,
+          "character": 21
+        }
+      }
+    },
+    {
+      "title": "Try to view expenses without a scoped access token",
+      "description": "## Try to view expenses without a scoped access token\nLet’s test whether the required scopes check is working as expected, by using an Access Token requested **_without_** the `read:reports` scope.  \n\n1. In the debug panel, choose Launch All from the dropdown menu, then click the play button. Your terminal will do some work, then provide a link to your application. Visit the link!\n1. Once you're in your application, click the Expenses link. \n\nYou should see a **403 Forbidden** error message:\n![](https://cdn.auth0.com/website/training/example/IDFUN-M02-L01-Ex02/img-6.png)\n\nOur access token has not been scoped. This means we've successfully added the scoping requirement to the route.  Now, let's modify the application to request a scope. "
+    },
+    {
+      "file": "src/web-app/index.js",
+      "description": "## Modify the web application to request scope\nNow that the API requires scope, we'll modify the web app to request it. \n\nThis is done by adding the following code to our application's auth middleware configuration:\n\n``` jsx \n\nscope: \"openid profile email read:reports\",\n```\n, to continue.",
+      "line": 50,
+      "selection": {
+        "start": {
+          "line": 49,
+          "character": 40
+        },
+        "end": {
+          "line": 49,
+          "character": 41
+        }
+      }
+    },
+    {
+      "title": "## Try to view expenses with a properly scoped access token",
+      "description": "## Try to view expenses with a properly scoped access token\nYou should now be able to authenticate into your app and view the expenses data without issue. \n\nThe application is now configured to request a scoped access token that is then used to request the data from the Expenses API."
+    }
+  ],
+  "ref": "core-codetour-steps"
+}
