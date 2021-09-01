@@ -1,6 +1,6 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
-  "title": "Working with Scopes",
+  "title": "2: Working with Scopes",
   "steps": [
     {
       "title": "Add a Scope to your Auth0 API",
@@ -9,14 +9,14 @@
     {
       "file": "src/api/api/index.js",
       "description": "## Import the requiredScopes Middleware.\n\nHere, in the index.js for the Expenses API, we'll add some code to bring in the middleware that will enable us to work with scopes. \n\nClick insert code to add the requiredScopes middleware.\n\n``` jsx\n, requiredScopes\n```\n, then continue.",
-      "line": 4,
+      "line": 11,
       "selection": {
         "start": {
-          "line": 4,
+          "line": 11,
           "character": 14
         },
         "end": {
-          "line": 4,
+          "line": 11,
           "character": 14
         }
       }
@@ -38,12 +38,12 @@
     },
     {
       "title": "Try to view expenses without a scoped access token",
-      "description": "## Try to view expenses without a scoped access token\nLet’s test whether the required scopes check is working as expected, by using an Access Token requested **_without_** the `read:reports` scope.  \n\n1. In the debug panel, choose Launch All from the dropdown menu, then click the play button. Your terminal will do some work, then provide a link to your application. Visit the link!\n1. Once you're in your application, click the Expenses link. \n\nYou should see a **403 Forbidden** error message:\n![](https://cdn.auth0.com/website/training/example/IDFUN-M02-L01-Ex02/img-6.png)\n\nOur access token has not been scoped. This means we've successfully added the scoping requirement to the route.  Now, let's modify the application to request a scope. "
+      "description": "## Try to view expenses without a scoped access token\nLet’s test whether the required scopes check is working as expected, by using an Access Token requested **_without_** the `read:reports` scope.  \n\n1. Click [here](command:workbench.action.files.saveFiles) to save all of the changes you've made.\n1. Next, click [here](command:workbench.action.debug.start) to build and deploy your Web Application and API locally so that you can test.\n1. Next, click [here](command:auth0.lab.openEndpointByName?[\"Lab: Web App, Lab: API\"]) to open and view your Web Application and API.\n1. Once you're in your application, click the Expenses link. \n\nYou should see a **403 Forbidden** error message:\n![](https://cdn.auth0.com/website/training/example/IDFUN-M02-L01-Ex02/img-6.png)\n\nThe access token has not been scoped. This means that, while we've successfully added the scoping requirement to the route, the application is not requesting a scope.\n\nNow, let's modify the application to request a scope. "
     },
     {
       "file": "src/web-app/index.js",
       "description": "## Modify the web application to request scope\nNow that the API requires scope, we'll modify the web app to request it. \n\nThis is done by adding the following code to our application's auth middleware configuration:\n\n``` jsx \n\nscope: \"openid profile email read:reports\",\n```\n, to continue.",
-      "line": 50,
+      "line": 51,
       "selection": {
         "start": {
           "line": 49,
@@ -57,7 +57,7 @@
     },
     {
       "title": "## Try to view expenses with a properly scoped access token",
-      "description": "## Try to view expenses with a properly scoped access token\nYou should now be able to authenticate into your app and view the expenses data without issue. \n\nThe application is now configured to request a scoped access token that is then used to request the data from the Expenses API."
+      "description": "## Try to view expenses with a properly scoped access token\nWith this change, you should now be able to authenticate into your app and view the expenses data without issue. \n\nWe'll need to stop the current versions and re-deploy, first. let's do that now:\n\n1. Click [here](command:workbench.action.files.saveFiles) to save all of the changes you've made.\n1. Next, click [here](command:workbench.action.debug.stop) to stop the previous version of the Web App running in debug, and [here](command:workbench.action.debug.stop) to stop the previous version of the API.\n1. Now, click [here](command:workbench.action.debug.start) to build and deploy your Web Application and API again.\n1. Click [here](command:auth0.lab.openEndpointByName?[\"Lab: Web App, Lab: API\"]) to open and view your Web Application and API.\n1. Once you're in your application, click the Expenses link. \n\nThe application is now configured to request a scoped access token that is then used to request the data from the Expenses API.\n\nNice work!"
     }
   ],
   "ref": "core-codetour-steps"
