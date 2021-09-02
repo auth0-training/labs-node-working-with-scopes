@@ -3,12 +3,16 @@
   "title": "1: Configure this Lab",
   "steps": [
     {
+      "file": "src/api/api/index.js",
+      "line": 1,
       "title": "Sign this Enviuronment into Your Labs Tenant",
       "description": "## Sign this Environment into Your Labs Tenant\nBefore getting started, you'll need to sign this Environment into your Auth0 account under the labs tenant. \n\n**IMPORTANT**: If you have not already created a labs tenant, please see the Create a Tenant lab for instructions to do so. \n\n1. #### Click [here](command:auth0.auth.signIn) to log the Auth0 extension in this environment into your Auth0 tenant. \n     A browser window will open requesting that you confirm that the code shown matches the one shown in the lower right hand side of your vscode window.\n1. #### Confirm that the values match, then click the **Confirm** button.\n     ![create-1](./.auth0/lab/images/create-1.gif)\n\n     ![create-0](./.auth0/lab/images/create-0.gif)\n1. #### Select your labs tenant and click Accept.\n     ![select-0](./.auth0/lab/images/select-0.gif)\n1. #### You should see a success message. Go ahead and close the browser tab.\nNext, you'll set the tenant up with the necessary Application and API to compete this lab."
     },
     {
+      "file": "src/api/api/index.js",
+      "line": 1,
       "title": "Configure this Lab",
-      "description": "## Configure this Lab\nBefore you can get started working with scopes, you'll need to have some things in place. \n\nSpecifically, this lab works with a Regular Web Application and an Expenses API. Both of these will need to be configured on your Auth0 Labs tenant. \n\nIf you've gone through the previous labs, you may already have these in place. \n\nRegardless, we'll go ahead and run a few commands to ensure everything is set up appropriately.\n\n1. Click [here](command:workbench.action.terminal.new) to open your terminal so that you can see when the subsequent commands are finished running. You may already have a terminal open - that's OK.\n1. Click [here](command:auth0.lab.configure) to leverage the Auth0 extension for vscode and the CLI to set the lab up. \n1. Click [here](command:workbench.action.files.saveAll) to save this progress."
+      "description": "## Configure this Lab\nBefore you can get started working with scopes, you'll need to have some things in place. \n\nSpecifically, this lab works with a Regular Web Application and an Expenses API. Both of these will need to be configured on your Auth0 Labs tenant. \n\nIf you've gone through the previous labs, you may already have these in place. \n\nRegardless, we'll go ahead and run a few commands to ensure everything is set up appropriately.\n\n1. #### Click [here](command:workbench.action.terminal.new) to open your terminal so that you can see when the subsequent commands are finished running. You may already have a terminal open - that's OK.\n1. #### Click [here](command:auth0.lab.configure) to leverage the Auth0 extension for vscode and the CLI to set the lab up. \n1. #### Click [here](command:workbench.action.files.saveAll) to save this progress."
     }
   ],
   "isPrimary": true,
