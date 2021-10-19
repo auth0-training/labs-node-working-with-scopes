@@ -1,0 +1,14 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "1: Configure this Lab",
+  "steps": [
+    {
+      "file": "src/api/api/index.js",
+      "line": 1,
+      "title": "Configure this Lab",
+      "description": "## Configure this Lab\nBefore you can get started working with scopes, you'll need to have some things in place. \n\nSpecifically, this lab works with a Regular Web Application and an Expenses API. Both of these will need to be configured on your Auth0 Labs tenant. \n\nIf you've gone through the previous labs, you may already have these in place. \n\nRegardless, we'll go ahead and run a few commands to ensure everything is set up appropriately.\n\n1. #### Click [here](command:workbench.action.terminal.new) to open your terminal so that you can see when the subsequent commands are finished running. You may already have a terminal open - that's OK.\n1. #### Click [here](command:auth0.lab.configure) to leverage the Auth0 extension for vscode and the CLI to set the lab up. \n1. #### Click [here](command:workbench.action.files.saveAll) to save this progress."
+    }
+  ],
+  "isPrimary": true,
+  "nextTour": "2: Working with Scopes"
+}
