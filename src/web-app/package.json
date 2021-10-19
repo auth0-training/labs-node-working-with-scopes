@@ -7,12 +7,12 @@
   "author": "Auth0",
   "main": "index.js",
   "bugs": {
-    "url": "https://github.com/auth0/auth0-product-education-labs/issues"
+    "url": "https://github.com/auth0-training/labs-node-working-with-scopes/issues"
   },
-  "homepage": "https://github.com/auth0/auth0-product-education-labs#readme",
+  "homepage": "https://github.com/auth0-training/labs-node-working-with-scopes#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/auth0/auth0-product-education-labs.git"
+    "url": "git+https://github.com/auth0-training/labs-node-working-with-scopes.git"
   },
   "scripts": {
     "start": "PORT=$npm_package_config_port SESSION_SECRET=$npm_package_config_session_secret node index"
