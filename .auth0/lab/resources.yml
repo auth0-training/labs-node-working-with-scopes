@@ -15,6 +15,4 @@ resourceServers: # Add other resource server settings (https://auth0.com/docs/ap
   -
     name: "Lab: API"
     identifier: "https://expenses-api"
-    scopes:
-      - value: "read:reports"
-        description: "Read expense reports"
+
