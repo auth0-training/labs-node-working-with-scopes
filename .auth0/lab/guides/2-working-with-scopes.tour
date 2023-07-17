@@ -3,7 +3,7 @@
   "title": "2: Working with Scopes",
   "steps": [
     {
-      "file": "src/api/api/index.js",
+      "file": "",
       "line": 1,
       "title": "Add a Scope to your Auth0 API",
       "description": "## Add a scope to your Auth0 API\n\nIn this exercise, you’ll add a permission to your secured API, so that only clients requesting a specific scope can access it.\n\nThe process begins by defining your scope in your Auth0 API.  \n\n1. #### In the Auth0 Dashboard, go to the [APIs page](https://manage.auth0.com/#/apis), and click the **_Lab: API_** to open its settings page.  \n\n1. #### Click the **Permissions** tab.\n\n1. #### Add a new permission called \"_read:reports_\" with a suitable description.\n    This custom permission is the one you will use to determine whether the client is authorized to retrieve expenses.  \n\n    Here's how that should look:\n\n    ![Add Permission](https://cdn.auth0.com/website/a0fun/v2/add-perms.gif)  \n\n     **IMPORTANT**: If you've already completed the Working with APIs lab, you have added this permission once before. If the permission already exists, proceed past this step. If not, go ahead and create it. \n\nThis alone is not enough to implement the scope, however. Next, we’ll need to adjust the *_Lab: API_* code to check bearer tokens for this scope."
@@ -40,7 +40,7 @@
     },
     {
       "file": "src/api/api/index.js",
-      "line": 1,
+      "line": 55,
       "title": "Try to view expenses without a scoped access token",
       "description": "## Try to view expenses without a scoped access token\nLet’s test whether the required scopes check is working as expected, by using an Access Token requested **_without_** the `read:reports` scope.  \n\n1. #### Click [here](command:workbench.action.files.saveFiles) to save all of the changes you've made.\n1. #### Next, click [here](command:workbench.action.debug.start) to build and deploy your Web Application and API locally so that you can test.\n1. #### Next, click [here](command:auth0.lab.openEndpointByName?[\"Lab: Web App, Lab: API\"]) to open and view your Web Application and API.\n1. #### Once you're in your application, click the Expenses link. \n\nYou should see a **403 Forbidden** error message:\n![](https://cdn.auth0.com/website/training/example/IDFUN-M02-L01-Ex02/img-6.png)\n\nThe access token has not been scoped. This means that, while we've successfully added the scoping requirement to the route, the application is not requesting a scope.\n\nNow, let's modify the application to request a scope. "
     },
@@ -60,7 +60,7 @@
       }
     },
     {
-      "file": "src/api/api/index.js",
+      "file": "",
       "line": 1,
       "title": "Try to view expenses with a properly scoped access token",
       "description": "## Try to view expenses with a properly scoped access token\nWith this change, you should now be able to authenticate into your app and view the expenses data without issue. \n\nWe'll need to stop the current versions and re-deploy, first. let's do that now:\n\n1. #### Click [here](command:workbench.action.files.saveFiles) to save all of the changes you've made.\n1. #### Next, click [here](command:workbench.action.debug.stop) to stop the previous version of the Web App running in debug, and [here](command:workbench.action.debug.stop) to stop the previous version of the API.\n1. #### Now, click [here](command:workbench.action.debug.start) to build and deploy your Web Application and API again.\n1. #### Click [here](command:auth0.lab.openEndpointByName?[\"Lab: Web App, Lab: API\"]) to open and view your Web Application and API.\n1. #### Once you're in your application, click the Expenses link.\n\nThe application is now configured to request a scoped access token that is then used to request the data from the Expenses API.\n\nIf you still see a 403 error, this is because you are still using the access token that was used prior to making the scope modifications. Reauthenticate by clicking the logout button and then logging in again.\n\nNice work!"
